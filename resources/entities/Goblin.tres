@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="EntityDefinition" format=3 uid="uid://cq3c0nuktqibp"]
+
+[ext_resource type="Script" uid="uid://n4wdao4yb455" path="res://src/entity/components/abilities/Ability.gd" id="1_3skao"]
+[ext_resource type="Texture2D" uid="uid://cdkg7vhiologb" path="res://assets/TileSet.png" id="2_k4l4r"]
+[ext_resource type="Script" uid="uid://2ko183ove0oe" path="res://src/entity/EntityDefinition.gd" id="3_8tl0y"]
+[ext_resource type="Script" uid="uid://bv45sx8o76h1d" path="res://src/entity/components/items/Inventory.gd" id="3_k4l4r"]
+[ext_resource type="Script" uid="uid://btjvfaon4ph8u" path="res://src/entity/components/items/Item.gd" id="3_vmhpv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mymg8"]
+atlas = ExtResource("2_k4l4r")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="Resource" id="Resource_plydf"]
+script = ExtResource("3_k4l4r")
+metadata/_custom_type_script = "uid://bv45sx8o76h1d"
+
+[resource]
+script = ExtResource("3_8tl0y")
+entity_name = "Goblin"
+icon = SubResource("AtlasTexture_mymg8")
+colour = Color(0.46737665, 0.620277, 0.34320268, 1)
+enemy_controller = true
+max_health = 5
+max_mana = 0
+strength = 8
+inventory = SubResource("Resource_plydf")
+metadata/_custom_type_script = "uid://2ko183ove0oe"

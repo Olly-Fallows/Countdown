@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="EntityDefinition" format=3 uid="uid://sg6v0fof4mfx"]
+
+[ext_resource type="Script" uid="uid://n4wdao4yb455" path="res://src/entity/components/abilities/Ability.gd" id="1_a22fp"]
+[ext_resource type="Script" uid="uid://2ko183ove0oe" path="res://src/entity/EntityDefinition.gd" id="1_aoupj"]
+[ext_resource type="Texture2D" uid="uid://cdkg7vhiologb" path="res://assets/TileSet.png" id="1_t8jjo"]
+[ext_resource type="Script" uid="uid://bv45sx8o76h1d" path="res://src/entity/components/items/Inventory.gd" id="3_2cth7"]
+[ext_resource type="Script" uid="uid://btjvfaon4ph8u" path="res://src/entity/components/items/Item.gd" id="3_m4efh"]
+[ext_resource type="Resource" uid="uid://wasfkhdodv0d" path="res://resources/items/HealthPotion.tres" id="4_0rfo3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_erxwb"]
+atlas = ExtResource("1_t8jjo")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="Resource" id="Resource_8tl0y"]
+script = ExtResource("3_2cth7")
+items = Array[ExtResource("3_m4efh")]([ExtResource("4_0rfo3")])
+metadata/_custom_type_script = "uid://bv45sx8o76h1d"
+
+[resource]
+script = ExtResource("1_aoupj")
+entity_name = "Player"
+icon = SubResource("AtlasTexture_erxwb")
+colour = Color(0.9088505, 0.89200807, 0.7209207, 1)
+camera_follow = true
+player_controller = true
+regen = 1
+regen_delay = 5
+mana_regen = 1
+mana_regen_delay = 30
+inventory = SubResource("Resource_8tl0y")
+metadata/_custom_type_script = "uid://2ko183ove0oe"

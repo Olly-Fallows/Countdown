@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="TileDefinition" format=3 uid="uid://cbfbpjvgfxaqh"]
+
+[ext_resource type="Script" uid="uid://dkiyischwbvgh" path="res://src/game/world/TileEffect.gd" id="1_rj1r6"]
+[ext_resource type="Texture2D" uid="uid://cdkg7vhiologb" path="res://assets/TileSet.png" id="2_caht3"]
+[ext_resource type="Script" uid="uid://d4ij2ukk3ua0v" path="res://src/game/world/TileDefinition.gd" id="2_ccuxw"]
+[ext_resource type="Script" uid="uid://fe34nij43bqr" path="res://src/game/world/effects/Doom.gd" id="2_gwa88"]
+
+[sub_resource type="Resource" id="Resource_plydf"]
+script = ExtResource("2_gwa88")
+type = 3
+metadata/_custom_type_script = "uid://fe34nij43bqr"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_caht3"]
+atlas = ExtResource("2_caht3")
+region = Rect2(16, 0, 16, 16)
+
+[resource]
+script = ExtResource("2_ccuxw")
+icon = SubResource("AtlasTexture_caht3")
+colour = Color(0.37254903, 0, 0.8117647, 1)
+effects = Array[ExtResource("1_rj1r6")]([SubResource("Resource_plydf")])
+metadata/_custom_type_script = "uid://d4ij2ukk3ua0v"

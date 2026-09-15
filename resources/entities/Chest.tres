@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="EntityDefinition" format=3 uid="uid://cx2o22hlo5n31"]
+
+[ext_resource type="Script" uid="uid://n4wdao4yb455" path="res://src/entity/components/abilities/Ability.gd" id="1_y0h10"]
+[ext_resource type="Script" uid="uid://2ko183ove0oe" path="res://src/entity/EntityDefinition.gd" id="2_3puuy"]
+[ext_resource type="Script" uid="uid://btjvfaon4ph8u" path="res://src/entity/components/items/Item.gd" id="2_8nhet"]
+[ext_resource type="Texture2D" uid="uid://cdkg7vhiologb" path="res://assets/TileSet.png" id="2_jsic1"]
+[ext_resource type="Script" uid="uid://bv45sx8o76h1d" path="res://src/entity/components/items/Inventory.gd" id="3_3eqnc"]
+[ext_resource type="Resource" uid="uid://wasfkhdodv0d" path="res://resources/items/HealthPotion.tres" id="3_jsic1"]
+[ext_resource type="Resource" uid="uid://cmdu73w7ox7l4" path="res://resources/items/ManaPotion.tres" id="5_u24vk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ntmo"]
+atlas = ExtResource("2_jsic1")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_u0sqn"]
+script = ExtResource("3_3eqnc")
+items = Array[ExtResource("2_8nhet")]([ExtResource("3_jsic1"), ExtResource("5_u24vk")])
+metadata/_custom_type_script = "uid://bv45sx8o76h1d"
+
+[resource]
+script = ExtResource("2_3puuy")
+entity_name = "Chest"
+death_verb = "broke open"
+icon = SubResource("AtlasTexture_5ntmo")
+max_health = 1
+inventory = SubResource("Resource_u0sqn")
+metadata/_custom_type_script = "uid://2ko183ove0oe"

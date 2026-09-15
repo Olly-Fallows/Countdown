@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cmdu73w7ox7l4"]
+
+[ext_resource type="Texture2D" uid="uid://cdkg7vhiologb" path="res://assets/TileSet.png" id="1_kseve"]
+[ext_resource type="Script" uid="uid://btjvfaon4ph8u" path="res://src/entity/components/items/Item.gd" id="1_ytit6"]
+[ext_resource type="Script" uid="uid://3ye1e7ua7d3" path="res://src/entity/components/items/uses/RestoreMana.gd" id="3_s00nr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kseve"]
+atlas = ExtResource("1_kseve")
+region = Rect2(48, 112, 16, 16)
+
+[sub_resource type="Resource" id="Resource_s00nr"]
+script = ExtResource("3_s00nr")
+metadata/_custom_type_script = "uid://3ye1e7ua7d3"
+
+[resource]
+script = ExtResource("1_ytit6")
+icon = SubResource("AtlasTexture_kseve")
+colour = Color(0, 0, 1, 1)
+name = "Mana Potion"
+use = SubResource("Resource_s00nr")
+metadata/_custom_type_script = "uid://btjvfaon4ph8u"

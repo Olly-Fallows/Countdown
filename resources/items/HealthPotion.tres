@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://wasfkhdodv0d"]
+
+[ext_resource type="Script" uid="uid://btjvfaon4ph8u" path="res://src/entity/components/items/Item.gd" id="1_paslu"]
+[ext_resource type="Texture2D" uid="uid://cdkg7vhiologb" path="res://assets/TileSet.png" id="1_w58j3"]
+[ext_resource type="Script" uid="uid://ej3qxhv7epnc" path="res://src/entity/components/items/uses/Heal.gd" id="3_u0sqn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w58j3"]
+atlas = ExtResource("1_w58j3")
+region = Rect2(48, 112, 16, 16)
+
+[sub_resource type="Resource" id="Resource_nkeig"]
+script = ExtResource("3_u0sqn")
+metadata/_custom_type_script = "uid://ej3qxhv7epnc"
+
+[resource]
+script = ExtResource("1_paslu")
+icon = SubResource("AtlasTexture_w58j3")
+colour = Color(1, 0, 0, 1)
+name = "Health Potion"
+use = SubResource("Resource_nkeig")
+metadata/_custom_type_script = "uid://btjvfaon4ph8u"

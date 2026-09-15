@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="TileDefinition" format=3 uid="uid://dwk3ec4e4vwqo"]
+
+[ext_resource type="Script" uid="uid://dkiyischwbvgh" path="res://src/game/world/TileEffect.gd" id="1_fhgpi"]
+[ext_resource type="Script" uid="uid://be01fwfx1evfq" path="res://src/game/world/effects/NextLevel.gd" id="2_1k4il"]
+[ext_resource type="Script" uid="uid://d4ij2ukk3ua0v" path="res://src/game/world/TileDefinition.gd" id="2_856hv"]
+[ext_resource type="Texture2D" uid="uid://cdkg7vhiologb" path="res://assets/TileSet.png" id="2_aaeau"]
+
+[sub_resource type="Resource" id="Resource_2r1tl"]
+script = ExtResource("2_1k4il")
+metadata/_custom_type_script = "uid://be01fwfx1evfq"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aaeau"]
+atlas = ExtResource("2_aaeau")
+region = Rect2(64, 0, 16, 16)
+
+[resource]
+script = ExtResource("2_856hv")
+icon = SubResource("AtlasTexture_aaeau")
+effects = Array[ExtResource("1_fhgpi")]([SubResource("Resource_2r1tl")])
+metadata/_custom_type_script = "uid://d4ij2ukk3ua0v"

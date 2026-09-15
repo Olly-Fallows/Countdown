@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cx8ukjas8iinv"]
+
+[ext_resource type="Script" uid="uid://dn2xvuyye3tdn" path="res://src/game/Level.gd" id="1_ryjsw"]
+[ext_resource type="Script" uid="uid://2ko183ove0oe" path="res://src/entity/EntityDefinition.gd" id="2_3dx25"]
+[ext_resource type="Script" uid="uid://1tjwnoddpach" path="res://src/game/world/procgen/simpleroom/SimpleRooms.gd" id="2_pcu7d"]
+[ext_resource type="Resource" uid="uid://cq3c0nuktqibp" path="res://resources/entities/Goblin.tres" id="3_nuoa6"]
+[ext_resource type="Resource" uid="uid://cx2o22hlo5n31" path="res://resources/entities/Chest.tres" id="4_nuoa6"]
+
+[sub_resource type="Resource" id="Resource_ryjsw"]
+script = ExtResource("2_pcu7d")
+metadata/_custom_type_script = "uid://1tjwnoddpach"
+
+[node name="Testing" type="Node2D" unique_id=532522321]
+script = ExtResource("1_ryjsw")
+generator = SubResource("Resource_ryjsw")
+metadata/_custom_type_script = "uid://dn2xvuyye3tdn"

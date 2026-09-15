@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://c42lb7g0x3j8u"]
+
+[ext_resource type="FontFile" uid="uid://cf7w10usar8di" path="res://assets/BoldPixels.ttf" id="1_10srq"]
+
+[resource]
+default_font = ExtResource("1_10srq")
+default_font_size = 8
