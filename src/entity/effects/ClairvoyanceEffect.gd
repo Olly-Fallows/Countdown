@@ -13,39 +13,43 @@ const directions: Dictionary[Vector2, String] = {
 }
 
 var path: PackedVector2Array
+var target_pos: Vector2
 
-func _init(p: PackedVector2Array, duration: int) -> void:
-	path = p
+func _init(p: Vector2, duration: int) -> void:
+	target_pos = p
 	ttl = duration
+	colour = Color.CYAN
 
-func apply(_entity: Entity) -> void:
-	pass
+func apply(entity: Entity) -> void:
+	path = GameData.map_data.pathfinder.get_point_path(entity.grid_pos, target_pos, true)
+	path.remove_at(0)
 
 func tick(entity: Entity) -> void:
-	cleanup_path(entity.grid_pos)
-	Log.log(entity.name() + " should head " + get_next_direction(entity.grid_pos))
+	path = GameData.map_data.pathfinder.get_point_path(entity.grid_pos, target_pos, true)
+	path.remove_at(0)
+	Log.log("[color=#00ffff]" + entity.name() + " should head " + get_next_direction(entity.grid_pos) + "[/color]")
 
-func remove(_entity: Entity) -> void:
-	pass
+func remove(entity: Entity) -> void:
+	Log.log("[color=#00ffff]" + entity.name() + " can no longer see the way" + "[/color]")
 
-func cleanup_path(pos: Vector2) -> void:
-	if path.size() <= 0:
-		return
-	if path[0] == pos:
-		path.remove_at(0)
-	if path.size() <= 0:
-		return
-	var closest: Vector2 = path[0]
-	for step in path:
-		if (step-pos).length() <= (closest-pos).length():
-			closest = step
-	var step: Vector2 = path[0]
-	while path.size() > 0 and step != closest:
-		path.remove_at(0)
-		step = path[0]
+#func cleanup_path(pos: Vector2) -> void:
+	#if path.size() <= 0:
+		#return
+	#if path[0] == pos:
+		#path.remove_at(0)
+	#if path.size() <= 0:
+		#return
+	#var closest: Vector2 = path[0]
+	#for step in path:
+		#if (step-pos).length() <= (closest-pos).length():
+			#closest = step
+	#var step: Vector2 = path[0]
+	#while path.size() > 0 and step != closest:
+		#path.remove_at(0)
+		#step = path[0]
 
 func get_next_direction(pos: Vector2) -> String:
 	if path.size() <= 1:
-		return "up the stairs"
+		return "[color=#00ffff]" + "up the stairs" + "[/color]"
 	var dir = (path[0]-pos).clamp(Vector2(-1,-1), Vector2(1,1))
 	return directions[dir]

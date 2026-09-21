@@ -4,6 +4,7 @@ class_name InventoryContextMenu
 const USE: String = "Use"
 const DISCARD: String = "Discard"
 const EQUIP: String = "Equip"
+const UNEQUIP: String = "Unequip"
 
 var item: Item
 
@@ -53,7 +54,10 @@ func get_menu_options(i: Item) -> Array[String]:
 	if i.use != null:
 		options.append(USE)
 	if i.equips != null:
-		options.append(EQUIP)
+		if GameData.player.is_equiped(i):
+			options.append(UNEQUIP)
+		else:
+			options.append(EQUIP)
 	options.append(DISCARD)
 	return options
 
@@ -66,18 +70,23 @@ func _input(event: InputEvent) -> void:
 		move_selected(-1)
 	if event.is_action_pressed("down"):
 		move_selected(1)
-	if event.is_action_pressed("accept"):
+	if event.is_action_pressed("accept") or event.is_action_pressed("inventory"):
 		var option: MenuOption = vbox.get_child(selected)
 		if option.text == USE:
 			GameData.player.controller.active_ability = ItemAbility.new(item)
-			GameData.player.inventory.remove_item(item)
+			GameData.player.controller.check_target_pos()
+			GameData.player.remove_item(item)
 			GameData.player.controller.inventory.queue_free()
 			GameData.player.controller.queue_redraw()
 		if option.text == DISCARD:
-			GameData.player.inventory.remove_item(item)
+			GameData.player.remove_item(item)
 			GameData.player.controller.inventory.queue_free()
 		if option.text == EQUIP:
-			pass
+			GameData.player.equip(item)
+			GameData.player.controller.inventory.queue_free()
+		if option.text == UNEQUIP:
+			GameData.player.unequip(item)
+			GameData.player.controller.inventory.queue_free()
 		
 func move_selected(dir: int) -> void:
 	if vbox.get_children().size() > 0:

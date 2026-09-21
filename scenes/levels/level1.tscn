@@ -3,17 +3,26 @@
 [ext_resource type="Script" uid="uid://dn2xvuyye3tdn" path="res://src/game/Level.gd" id="1_bfxgj"]
 [ext_resource type="Theme" uid="uid://c42lb7g0x3j8u" path="res://resources/Theme.tres" id="1_nkeig"]
 [ext_resource type="Script" uid="uid://2ko183ove0oe" path="res://src/entity/EntityDefinition.gd" id="2_dywbp"]
-[ext_resource type="Resource" uid="uid://cq3c0nuktqibp" path="res://resources/entities/Goblin.tres" id="3_1seuy"]
+[ext_resource type="Script" uid="uid://kslwr66wvqj8" path="res://src/ui/OutlineChildren.gd" id="2_nfihu"]
 [ext_resource type="Script" uid="uid://1tjwnoddpach" path="res://src/game/world/procgen/simpleroom/SimpleRooms.gd" id="4_2r1tl"]
-[ext_resource type="Resource" uid="uid://cx2o22hlo5n31" path="res://resources/entities/Chest.tres" id="4_5ntmo"]
+[ext_resource type="Resource" uid="uid://cx2o22hlo5n31" path="res://resources/entities/chests/BasicChest.tres" id="4_5ntmo"]
 [ext_resource type="Script" uid="uid://dyyfbbwdsxtmh" path="res://src/ui/PlayerHealthBar.gd" id="5_dywbp"]
+[ext_resource type="Resource" uid="uid://c23yxd63lvmn0" path="res://resources/entities/Skeleton.tres" id="5_nfihu"]
 [ext_resource type="Script" uid="uid://bd2nt58o0fbj7" path="res://src/ui/LogBox.gd" id="6_1seuy"]
 [ext_resource type="Script" uid="uid://bn1e12cw1acfx" path="res://src/ui/PlayerManaBar.gd" id="6_2r1tl"]
+[ext_resource type="Script" uid="uid://shbf2l2ls8ps" path="res://src/game/world/procgen/RoomPreset.gd" id="7_jprdt"]
 [ext_resource type="Script" uid="uid://dknihv0w53ku3" path="res://src/ui/Map.gd" id="8_8a7m2"]
+[ext_resource type="Resource" uid="uid://vfp628ues6sq" path="res://resources/rooms/SubRooms.tres" id="8_jprdt"]
+[ext_resource type="Resource" uid="uid://dcerqpfo11vqn" path="res://resources/rooms/PassThrough.tres" id="9_g7tkf"]
+[ext_resource type="Resource" uid="uid://f77lyyfbad3v" path="res://resources/rooms/Ruins1.tres" id="10_4fww7"]
 [ext_resource type="Script" uid="uid://bv0qkex335m8q" path="res://src/ui/AbilityBar.gd" id="10_5ntmo"]
+[ext_resource type="Resource" uid="uid://xgao4nwvcev7" path="res://resources/rooms/Ruins2.tres" id="11_gvm5i"]
+[ext_resource type="Resource" uid="uid://ca2fp0wshyne4" path="res://resources/rooms/Ruins3.tres" id="12_jrfo0"]
 
 [sub_resource type="Resource" id="Resource_e16kn"]
 script = ExtResource("4_2r1tl")
+enemies = Array[ExtResource("2_dywbp")]([ExtResource("5_nfihu"), ExtResource("4_5ntmo")])
+room_options = Array[ExtResource("7_jprdt")]([ExtResource("8_jprdt"), ExtResource("9_g7tkf"), ExtResource("10_4fww7"), ExtResource("11_gvm5i"), ExtResource("12_jrfo0")])
 metadata/_custom_type_script = "uid://1tjwnoddpach"
 
 [node name="Level1" type="Control" unique_id=654312654]
@@ -24,6 +33,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_nkeig")
+script = ExtResource("2_nfihu")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1137515611]
 layout_mode = 0
@@ -39,6 +49,7 @@ render_target_update_mode = 4
 
 [node name="Level" type="Node2D" parent="SubViewportContainer/SubViewport" unique_id=594384000]
 script = ExtResource("1_bfxgj")
+size = Vector2i(40, 40)
 generator = SubResource("Resource_e16kn")
 metadata/_custom_type_script = "uid://dn2xvuyye3tdn"
 
@@ -56,6 +67,7 @@ layout_mode = 2
 text = "HP:"
 
 [node name="PlayerHealthBar" type="ProgressBar" parent="VBoxContainer/HBoxContainer" unique_id=879360703]
+modulate = Color(1, 0, 0, 1)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -71,6 +83,7 @@ layout_mode = 2
 text = "MP:"
 
 [node name="PlayerManaBar" type="ProgressBar" parent="VBoxContainer/HBoxContainer2" unique_id=382426894]
+modulate = Color(0, 0, 1, 1)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1

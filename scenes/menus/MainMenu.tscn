@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://bele0n1r08yy1"]
+
+[ext_resource type="Theme" uid="uid://c42lb7g0x3j8u" path="res://resources/Theme.tres" id="1_wlpbi"]
+[ext_resource type="Script" uid="uid://cgdg6ksphg7ra" path="res://src/ui/LoadScene.gd" id="2_ldf1p"]
+[ext_resource type="Script" uid="uid://ik2ci2jk0eii" path="res://src/ui/MainMenu.gd" id="2_p0il0"]
+[ext_resource type="Script" uid="uid://dtnkuw0b5irnl" path="res://src/ui/NewGame.gd" id="2_tyyoy"]
+
+[node name="MainMenu" type="Control" unique_id=927082484]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_wlpbi")
+script = ExtResource("2_p0il0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2053485928]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1767337560]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 48
+text = "THE CREEPING DOOM"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=425790143]
+layout_mode = 2
+
+[node name="NewGame" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=1736655712]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../Controls")
+focus_neighbor_bottom = NodePath("../Options")
+text = "New Game"
+script = ExtResource("2_tyyoy")
+scene = "uid://bta7tylc4aak3"
+
+[node name="Options" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=1977417547]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../NewGame")
+focus_neighbor_bottom = NodePath("../Controls")
+text = "Options"
+script = ExtResource("2_ldf1p")
+scene = "uid://cin2a6ywecs37"
+
+[node name="Controls" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=2042502604]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../Options")
+focus_neighbor_bottom = NodePath("../NewGame")
+text = "Controls"
+script = ExtResource("2_ldf1p")
+scene = "uid://cvxy1n1d78kxn"

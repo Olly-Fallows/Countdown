@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="RoomPreset" format=3 uid="uid://dcerqpfo11vqn"]
+
+[ext_resource type="Script" uid="uid://shbf2l2ls8ps" path="res://src/game/world/procgen/RoomPreset.gd" id="1_dq3q3"]
+
+[resource]
+script = ExtResource("1_dq3q3")
+layout = "##d##
+#...#
+#...#
+#...#
+##d##"
+metadata/_custom_type_script = "uid://shbf2l2ls8ps"

@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://c1x3aa8jnsvn4"]
+
+[ext_resource type="Theme" uid="uid://c42lb7g0x3j8u" path="res://resources/Theme.tres" id="1_lktp6"]
+[ext_resource type="Script" uid="uid://db7au0vh3xe3m" path="res://src/ui/ScoreLabel.gd" id="2_g5bmv"]
+[ext_resource type="Script" uid="uid://cgdg6ksphg7ra" path="res://src/ui/LoadScene.gd" id="3_gyls2"]
+
+[node name="ScoreScreen" type="Control" unique_id=282741373]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_lktp6")
+
+[node name="Label" type="Label" parent="." unique_id=512928483]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -90.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "YOU	 ESCAPED DOOM"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Label" unique_id=1600672645]
+layout_mode = 0
+offset_left = 421.0
+offset_top = 41.000004
+offset_right = 461.0
+offset_bottom = 53.000004
+rotation = -0.5235988
+text = "WOW"
+
+[node name="Button" type="Button" parent="." unique_id=1841118812]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -27.5
+offset_top = -71.0
+offset_right = 27.5
+offset_bottom = -51.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Main Menu"
+script = ExtResource("3_gyls2")
+scene = "uid://bele0n1r08yy1"
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=1143674368]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 12.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+script = ExtResource("2_g5bmv")
+metadata/_custom_type_script = "uid://db7au0vh3xe3m"

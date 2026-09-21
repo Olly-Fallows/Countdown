@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cqsfh1dbbufub"]
+
+[ext_resource type="Script" uid="uid://n4wdao4yb455" path="res://src/entity/components/abilities/Ability.gd" id="1_dbpuq"]
+[ext_resource type="Script" uid="uid://dmyodmtnhftms" path="res://src/entity/components/items/equips/BasicStats.gd" id="1_yuxfc"]
+[ext_resource type="Texture2D" uid="uid://cdkg7vhiologb" path="res://assets/TileSet.png" id="2_dbpuq"]
+[ext_resource type="Script" uid="uid://btjvfaon4ph8u" path="res://src/entity/components/items/Item.gd" id="3_akklx"]
+
+[sub_resource type="Resource" id="Resource_cokai"]
+script = ExtResource("1_yuxfc")
+arcane = 2
+mana = 10
+health = 5
+slot = 1
+metadata/_custom_type_script = "uid://dmyodmtnhftms"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tp25"]
+atlas = ExtResource("2_dbpuq")
+region = Rect2(64, 112, 16, 16)
+
+[resource]
+script = ExtResource("3_akklx")
+icon = SubResource("AtlasTexture_1tp25")
+colour = Color(0.34901962, 0.7647059, 0.8980392, 1)
+name = "Enchanted Armour"
+equips = SubResource("Resource_cokai")
+metadata/_custom_type_script = "uid://btjvfaon4ph8u"

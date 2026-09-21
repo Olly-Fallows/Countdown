@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="EntityDefinition" format=3 uid="uid://b8j2iortotqss"]
+
+[ext_resource type="Script" uid="uid://n4wdao4yb455" path="res://src/entity/components/abilities/Ability.gd" id="1_xpkok"]
+[ext_resource type="Texture2D" uid="uid://cdkg7vhiologb" path="res://assets/TileSet.png" id="2_kv87t"]
+[ext_resource type="Script" uid="uid://btjvfaon4ph8u" path="res://src/entity/components/items/Item.gd" id="3_ye7cw"]
+[ext_resource type="Resource" uid="uid://wasfkhdodv0d" path="res://resources/items/potions/HealthPotion.tres" id="4_hk3yy"]
+[ext_resource type="Resource" uid="uid://cmdu73w7ox7l4" path="res://resources/items/potions/ManaPotion.tres" id="6_ib7xk"]
+[ext_resource type="Resource" uid="uid://dp2e2hpunydb5" path="res://resources/items/weapons/PolishedStaff.tres" id="7_e52wo"]
+[ext_resource type="Resource" uid="uid://b46mcvhnc7d8p" path="res://resources/items/armour/ClothArmour.tres" id="8_e18sy"]
+[ext_resource type="Resource" uid="uid://cbcf4qsjtdqdp" path="res://resources/items/weapons/BronzeSword.tres" id="8_e52wo"]
+[ext_resource type="Resource" uid="uid://th6hwkt8nm0q" path="res://resources/items/weapons/RecurveBow.tres" id="9_tbb2e"]
+[ext_resource type="Script" uid="uid://bv45sx8o76h1d" path="res://src/entity/components/items/Inventory.gd" id="9_w3gxk"]
+[ext_resource type="Script" uid="uid://2ko183ove0oe" path="res://src/entity/EntityDefinition.gd" id="10_4ndwm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ntmo"]
+atlas = ExtResource("2_kv87t")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_u0sqn"]
+resource_local_to_scene = true
+script = ExtResource("9_w3gxk")
+items = Array[ExtResource("3_ye7cw")]([ExtResource("4_hk3yy"), ExtResource("4_hk3yy"), ExtResource("6_ib7xk"), ExtResource("6_ib7xk"), ExtResource("8_e18sy"), ExtResource("7_e52wo"), ExtResource("8_e52wo"), ExtResource("9_tbb2e")])
+metadata/_custom_type_script = "uid://bv45sx8o76h1d"
+
+[resource]
+script = ExtResource("10_4ndwm")
+entity_name = "Chest"
+death_verb = "broke open"
+icon = SubResource("AtlasTexture_5ntmo")
+colour = Color(0.44737256, 0.23973364, 9.62615e-08, 1)
+max_health = 1
+inventory = SubResource("Resource_u0sqn")
+metadata/_custom_type_script = "uid://2ko183ove0oe"

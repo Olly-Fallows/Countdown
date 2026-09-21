@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="EntityDefinition" format=3 uid="uid://bv44ol4g256cq"]
+
+[ext_resource type="Script" uid="uid://n4wdao4yb455" path="res://src/entity/components/abilities/Ability.gd" id="1_k6nlo"]
+[ext_resource type="Texture2D" uid="uid://cdkg7vhiologb" path="res://assets/TileSet.png" id="2_2n3tt"]
+[ext_resource type="Script" uid="uid://b555s0v4bvjto" path="res://src/entity/components/abilities/equipment/Lunge.gd" id="2_ksfg2"]
+[ext_resource type="Script" uid="uid://c03v68wejxy80" path="res://src/entity/components/abilities/ArcaneBolt.gd" id="3_36wgf"]
+[ext_resource type="Script" uid="uid://btjvfaon4ph8u" path="res://src/entity/components/items/Item.gd" id="3_ksfg2"]
+[ext_resource type="Script" uid="uid://bv45sx8o76h1d" path="res://src/entity/components/items/Inventory.gd" id="5_spa2k"]
+[ext_resource type="Script" uid="uid://2ko183ove0oe" path="res://src/entity/EntityDefinition.gd" id="6_yeixm"]
+
+[sub_resource type="Resource" id="Resource_k6nlo"]
+script = ExtResource("2_ksfg2")
+distance = 6
+metadata/_custom_type_script = "uid://b555s0v4bvjto"
+
+[sub_resource type="Resource" id="Resource_2n3tt"]
+script = ExtResource("3_36wgf")
+metadata/_custom_type_script = "uid://c03v68wejxy80"
+
+[sub_resource type="Resource" id="Resource_of0ii"]
+script = ExtResource("3_36wgf")
+metadata/_custom_type_script = "uid://c03v68wejxy80"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mymg8"]
+atlas = ExtResource("2_2n3tt")
+region = Rect2(80, 32, 16, 16)
+
+[sub_resource type="Resource" id="Resource_plydf"]
+script = ExtResource("5_spa2k")
+metadata/_custom_type_script = "uid://bv45sx8o76h1d"
+
+[resource]
+script = ExtResource("6_yeixm")
+entity_name = "Construct"
+death_verb = "dismantled"
+icon = SubResource("AtlasTexture_mymg8")
+colour = Color(0.72451633, 0.51446897, 0.32366666, 1)
+boss_controller = true
+is_transparent = false
+max_health = 50
+regen = 1
+regen_delay = 5
+max_mana = 20
+strength = 14
+arcane = 14
+abilities = Array[ExtResource("1_k6nlo")]([SubResource("Resource_k6nlo"), SubResource("Resource_2n3tt"), SubResource("Resource_of0ii")])
+inventory = SubResource("Resource_plydf")
+metadata/_custom_type_script = "uid://2ko183ove0oe"

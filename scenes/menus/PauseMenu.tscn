@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://6obtn17g034i"]
+
+[ext_resource type="Theme" uid="uid://c42lb7g0x3j8u" path="res://resources/Theme.tres" id="1_wgnbc"]
+[ext_resource type="Script" uid="uid://fy3h2vr7ws5p" path="res://src/ui/UnPause.gd" id="2_5c87e"]
+[ext_resource type="Script" uid="uid://cgdg6ksphg7ra" path="res://src/ui/LoadScene.gd" id="2_i7533"]
+
+[node name="PauseMenu" type="Control" unique_id=862179405]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_wgnbc")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1713362451]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5372549)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=930199424]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=1416530326]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_bottom = NodePath("../Button2")
+text = "RESUME"
+script = ExtResource("2_5c87e")
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=823031956]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../Button")
+text = "GIVE UP"
+script = ExtResource("2_i7533")
+scene = "uid://bele0n1r08yy1"

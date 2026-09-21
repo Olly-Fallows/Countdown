@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://daynu3x6qhptk"]
+
+[ext_resource type="Script" uid="uid://n4wdao4yb455" path="res://src/entity/components/abilities/Ability.gd" id="1_wp4in"]
+[ext_resource type="Script" uid="uid://0mkp1dipo23e" path="res://src/entity/components/abilities/equipment/ArrowShot.gd" id="2_wp4in"]
+[ext_resource type="Script" uid="uid://dmyodmtnhftms" path="res://src/entity/components/items/equips/BasicStats.gd" id="3_8527j"]
+[ext_resource type="Texture2D" uid="uid://cdkg7vhiologb" path="res://assets/TileSet.png" id="4_3a3db"]
+[ext_resource type="Script" uid="uid://btjvfaon4ph8u" path="res://src/entity/components/items/Item.gd" id="5_xqv5p"]
+
+[sub_resource type="Resource" id="Resource_84vya"]
+script = ExtResource("2_wp4in")
+colour = Color(1, 0.41568628, 0, 1)
+metadata/_custom_type_script = "uid://0mkp1dipo23e"
+
+[sub_resource type="Resource" id="Resource_cokai"]
+script = ExtResource("3_8527j")
+abilities = Array[ExtResource("1_wp4in")]([SubResource("Resource_84vya")])
+metadata/_custom_type_script = "uid://dmyodmtnhftms"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tp25"]
+atlas = ExtResource("4_3a3db")
+region = Rect2(16, 112, 16, 16)
+
+[resource]
+script = ExtResource("5_xqv5p")
+icon = SubResource("AtlasTexture_1tp25")
+colour = Color(0.9998576, 0.4156225, 0, 1)
+name = "Crude Bow"
+equips = SubResource("Resource_cokai")
+metadata/_custom_type_script = "uid://btjvfaon4ph8u"

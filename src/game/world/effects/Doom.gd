@@ -28,11 +28,12 @@ func passive(tile: Tile) -> void:
 			var next_tile = GameData.map_data.get_tile(tile.grid_pos+offset)
 			if next_tile:
 				if not next_tile.has_doom():
-					if next_tile.is_transparent():
-						next_tile.set_definition(doom_floor)
-						return
-					else:
-						next_tile.set_definition(doom_wall)
-						return
+					if not next_tile.is_exit():
+						if next_tile.is_transparent():
+							next_tile.set_definition(doom_floor)
+							#return
+						else:
+							next_tile.set_definition(doom_wall)
+							#return
 	else:
 		spread_cooldown -= 1

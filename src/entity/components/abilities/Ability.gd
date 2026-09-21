@@ -4,6 +4,8 @@ class_name Ability
 
 var name: String = ""
 var icon: AtlasTexture = AtlasTexture.new()
+@export
+var colour: Color = Color.WHITE
 
 var ability_range: int = 1
 var ability_cooldown: int = 0

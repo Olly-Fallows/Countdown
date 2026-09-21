@@ -24,6 +24,8 @@ var mana_regen_countdown: int = 0
 var strength: int
 var arcane: int
 
+var armour: int = 0
+
 func _init(definition: EntityDefinition) -> void:
 	max_health = definition.max_health
 	health = definition.max_health
@@ -40,6 +42,7 @@ func _init(definition: EntityDefinition) -> void:
 	mana_regen_countdown = mana_regen_delay
 	
 	strength = definition.strength
+	arcane = definition.arcane
 	
 	GameData.turn_taken.connect(regen)
 	GameData.turn_taken.connect(mana_regen)
@@ -48,16 +51,37 @@ func _init(definition: EntityDefinition) -> void:
 		load_save()
 		PlayerSave.save.connect(save)
 
+func increase_health(h: int) -> void:
+	max_health += h
+	health += h
+	heal.emit(h)
+	
+func increase_mana(m: int) -> void:
+	max_mana += m
+	mana += m
+	mana_changed.emit()
+	
+func decrease_health(h: int) -> void:
+	max_health -= h
+	health = min(health, max_health)
+	heal.emit(h)
+	
+func decrease_mana(m: int) -> void:
+	max_mana -= m
+	mana = min(mana, max_mana)
+	mana_changed.emit()
+
 func take_damage(dmg: Damage) -> int:
 	if dmg.amount > 0:
 		regen_countdown = regen_delay
-		health -= dmg.amount
+		var amount = max(1,dmg.amount-armour)
+		health -= amount
 		if health <= 0:
 			dead.emit()
 		else:
-			Log.log((get_parent() as Entity).name() + " took " + str(dmg.amount) + " damage")
-			hurt.emit(dmg.amount)
-		return dmg.amount
+			Log.log((get_parent() as Entity).name() + " took " + str(amount) + " damage")
+			hurt.emit(amount)
+		return amount
 	return 0
 
 func do_heal(healing: int) -> void:
@@ -99,15 +123,27 @@ func mana_regen() -> void:
 			mana_regen_countdown -= 1
 
 func load_save() -> void:
-	if PlayerSave.health > 0:
+	if PlayerSave.health >= 0:
 		health = PlayerSave.health
-	if PlayerSave.mana > 0:
+	if PlayerSave.mana >= 0:
 		mana = PlayerSave.mana
+	if PlayerSave.max_health >= 0:
+		max_health = PlayerSave.max_health
+	if PlayerSave.max_mana >= 0:
+		max_mana = PlayerSave.max_mana
+	if PlayerSave.strength >= 0:
+		strength = PlayerSave.strength
+	if PlayerSave.arcane >= 0:
+		arcane = PlayerSave.arcane
 	
 func save() -> void:
 	PlayerSave.health = health
 	PlayerSave.mana = mana
-
+	PlayerSave.max_health = max_health
+	PlayerSave.max_mana = max_mana
+	PlayerSave.strength = strength
+	PlayerSave.arcane = arcane
+	
 func strength_mod() -> int:
 	return floor((strength-10)/2)
 

@@ -14,6 +14,11 @@ func _init(i: Item, pos: Vector2i) -> void:
 	grid_pos = pos
 	
 	tree_exiting.connect(cleanup)
+	GameData.turn_taken.connect(calc_visible)
+	calc_visible()
+	
+func calc_visible() -> void:
+	visible = GameData.map_data.get_tile(grid_pos).is_in_view
 
 func cleanup() -> void:
 	GameData.map_data.items.erase(self)

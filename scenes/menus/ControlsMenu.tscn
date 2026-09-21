@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://cvxy1n1d78kxn"]
+
+[ext_resource type="Script" uid="uid://cgdg6ksphg7ra" path="res://src/ui/LoadScene.gd" id="1_elau7"]
+[ext_resource type="Script" uid="uid://dfkdojl7qu2nf" path="res://src/ui/InputRemapList.gd" id="1_p8m3u"]
+[ext_resource type="Theme" uid="uid://c42lb7g0x3j8u" path="res://resources/Theme.tres" id="1_qvv1g"]
+
+[node name="ControlsMenu" type="Control" unique_id=607335700]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_qvv1g")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1589097136]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer" unique_id=1627808188]
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+
+[node name="InputRemapList" type="VBoxContainer" parent="VBoxContainer/ScrollContainer" unique_id=1894665547]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_p8m3u")
+actions = Array[String](["up", "down", "left", "right", "accept", "pause", "inventory", "wait", "ability1", "ability2", "ability3", "ability4", "ability5", "ability6", "ability7", "ability8", "ability9"])
+metadata/_custom_type_script = "uid://dfkdojl7qu2nf"
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/InputRemapList" unique_id=355962302]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Controls"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1477358645]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=336039576]
+layout_mode = 2
+text = "Back"
+script = ExtResource("1_elau7")
+scene = "uid://bele0n1r08yy1"

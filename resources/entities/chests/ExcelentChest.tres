@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="EntityDefinition" format=3 uid="uid://dp7glv4iy2acr"]
+
+[ext_resource type="Script" uid="uid://n4wdao4yb455" path="res://src/entity/components/abilities/Ability.gd" id="1_du6op"]
+[ext_resource type="Texture2D" uid="uid://cdkg7vhiologb" path="res://assets/TileSet.png" id="2_dqv1r"]
+[ext_resource type="Script" uid="uid://btjvfaon4ph8u" path="res://src/entity/components/items/Item.gd" id="3_lpabt"]
+[ext_resource type="Resource" uid="uid://dw8pnrax0ni0o" path="res://resources/items/armour/SteelArmour.tres" id="4_wpfpi"]
+[ext_resource type="Resource" uid="uid://22pqai18a2iy" path="res://resources/items/weapons/EncrustedStaff.tres" id="6_bnkba"]
+[ext_resource type="Resource" uid="uid://bc8yj72ke7fsw" path="res://resources/items/weapons/LongBow.tres" id="7_bnkba"]
+[ext_resource type="Resource" uid="uid://comy0pxor74ld" path="res://resources/items/weapons/IronSword.tres" id="7_sh465"]
+[ext_resource type="Script" uid="uid://bv45sx8o76h1d" path="res://src/entity/components/items/Inventory.gd" id="10_on8l5"]
+[ext_resource type="Script" uid="uid://2ko183ove0oe" path="res://src/entity/EntityDefinition.gd" id="11_2vu0y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ntmo"]
+atlas = ExtResource("2_dqv1r")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_u0sqn"]
+resource_local_to_scene = true
+script = ExtResource("10_on8l5")
+items = Array[ExtResource("3_lpabt")]([ExtResource("4_wpfpi"), ExtResource("7_sh465"), ExtResource("6_bnkba"), ExtResource("7_bnkba")])
+metadata/_custom_type_script = "uid://bv45sx8o76h1d"
+
+[resource]
+script = ExtResource("11_2vu0y")
+entity_name = "Chest"
+death_verb = "broke open"
+icon = SubResource("AtlasTexture_5ntmo")
+colour = Color(1, 1, 0, 1)
+inventory = SubResource("Resource_u0sqn")
+metadata/_custom_type_script = "uid://2ko183ove0oe"

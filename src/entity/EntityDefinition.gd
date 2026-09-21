@@ -19,6 +19,14 @@ var camera_follow: bool = false
 var player_controller: bool = false
 @export
 var enemy_controller: bool = false
+@export
+var wander_controller: bool = false
+@export
+var dungeon_princess_controller: bool = false
+@export
+var princess_controller: bool = false
+@export
+var boss_controller: bool = false
 
 @export_category("Mechanics")
 @export

@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://cin2a6ywecs37"]
+
+[ext_resource type="Theme" uid="uid://c42lb7g0x3j8u" path="res://resources/Theme.tres" id="1_iy18p"]
+[ext_resource type="Script" uid="uid://cjtk6gxv52ahs" path="res://src/ui/VolumeSlider.gd" id="2_iy18p"]
+[ext_resource type="Script" uid="uid://cgdg6ksphg7ra" path="res://src/ui/LoadScene.gd" id="3_6ykrc"]
+
+[node name="ControlsMenu" type="Control" unique_id=607335700]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_iy18p")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1589097136]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=355962302]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Options"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=1028510318]
+layout_mode = 2
+text = "Master Volume: "
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/Label2" unique_id=453241182]
+layout_mode = 0
+offset_left = 68.0
+offset_right = 490.0
+offset_bottom = 16.0
+focus_neighbor_top = NodePath("../../HBoxContainer/Button")
+focus_neighbor_bottom = NodePath("../../Label3/HSlider")
+value = 50.0
+script = ExtResource("2_iy18p")
+
+[node name="Label3" type="Label" parent="VBoxContainer" unique_id=726509356]
+layout_mode = 2
+text = "Effects Volume: "
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/Label3" unique_id=1893301801]
+layout_mode = 0
+offset_left = 68.0
+offset_right = 490.0
+offset_bottom = 16.0
+focus_neighbor_top = NodePath("../../Label2/HSlider")
+focus_neighbor_bottom = NodePath("../../Label4/HSlider")
+value = 50.0
+script = ExtResource("2_iy18p")
+bus = "sfx"
+
+[node name="Label4" type="Label" parent="VBoxContainer" unique_id=1789625450]
+layout_mode = 2
+text = "Music Volume: "
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/Label4" unique_id=39859168]
+layout_mode = 0
+offset_left = 68.0
+offset_right = 490.0
+offset_bottom = 16.0
+focus_neighbor_top = NodePath("../../Label3/HSlider")
+focus_neighbor_bottom = NodePath("../../HBoxContainer/Button")
+value = 50.0
+script = ExtResource("2_iy18p")
+bus = "bgm"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1477358645]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=336039576]
+layout_mode = 2
+focus_neighbor_top = NodePath("../../Label4/HSlider")
+focus_neighbor_bottom = NodePath("../../Label2/HSlider")
+text = "Back"
+script = ExtResource("3_6ykrc")
+scene = "uid://bele0n1r08yy1"

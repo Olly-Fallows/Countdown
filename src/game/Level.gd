@@ -14,6 +14,9 @@ var items: Node2D
 
 var taking_turn: bool = false
 
+@export
+var bgm: AudioStream = preload("uid://csdurjhlicu78")
+
 func _ready() -> void:
 	# Setup map
 	GameData.player = Entity.new(Vector2i(5,5), player_definition)
@@ -32,6 +35,8 @@ func _ready() -> void:
 	
 	GameData.map_data.entity_added.connect(entities.add_child)
 	GameData.map_data.item_added.connect(items.add_child)
+	
+	Bgm.play_track(bgm)
 	
 func _physics_process(_delta: float) -> void:
 	take_turn()

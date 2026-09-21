@@ -25,7 +25,9 @@ func update_fov(map_data: MapData, origin: Vector2i, radius: int) -> void:
 		entity.visible = map_data.get_tile(entity.grid_pos).is_in_view
 		if entity.grid_pos != origin:
 			if entity.visible:
-				in_combat = true
+				if entity.controller:
+					if not entity.controller is PrincessController and not entity.controller is DungeonPrincessController:
+						in_combat = true
 
 func _clear_fov() -> void:
 	for tile in _fov:

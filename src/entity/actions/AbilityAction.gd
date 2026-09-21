@@ -15,7 +15,8 @@ func perform(entity: Entity) -> bool:
 	if entity.combat.mana < ability.mana_cost:
 		Log.log(entity.name() + " doesn't have enough mana")
 		return false
-	if ability.perform(entity, grid_pos):
+	@warning_ignore("redundant_await")
+	if await ability.perform(entity, grid_pos):
 		entity.combat.spend_mana(ability.mana_cost)
 		return true
 	return false

@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://dw8pnrax0ni0o"]
+
+[ext_resource type="Script" uid="uid://n4wdao4yb455" path="res://src/entity/components/abilities/Ability.gd" id="1_ggdgy"]
+[ext_resource type="Script" uid="uid://t4auniw2it34" path="res://src/entity/components/abilities/equipment/Block.gd" id="2_r5q8a"]
+[ext_resource type="Texture2D" uid="uid://cdkg7vhiologb" path="res://assets/TileSet.png" id="2_uotfn"]
+[ext_resource type="Script" uid="uid://dmyodmtnhftms" path="res://src/entity/components/items/equips/BasicStats.gd" id="3_2tpl7"]
+[ext_resource type="Script" uid="uid://btjvfaon4ph8u" path="res://src/entity/components/items/Item.gd" id="3_ggdgy"]
+
+[sub_resource type="Resource" id="Resource_84vya"]
+script = ExtResource("2_r5q8a")
+block = 3
+duration = 6
+colour = Color(1, 1, 0, 1)
+metadata/_custom_type_script = "uid://t4auniw2it34"
+
+[sub_resource type="Resource" id="Resource_cokai"]
+script = ExtResource("3_2tpl7")
+arcane = -3
+mana = -5
+health = 30
+abilities = Array[ExtResource("1_ggdgy")]([SubResource("Resource_84vya")])
+slot = 1
+metadata/_custom_type_script = "uid://dmyodmtnhftms"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tp25"]
+atlas = ExtResource("2_uotfn")
+region = Rect2(64, 112, 16, 16)
+
+[resource]
+script = ExtResource("3_ggdgy")
+icon = SubResource("AtlasTexture_1tp25")
+colour = Color(0.42316496, 0.49939007, 0.50377005, 1)
+name = "Steel Armour"
+equips = SubResource("Resource_cokai")
+metadata/_custom_type_script = "uid://btjvfaon4ph8u"

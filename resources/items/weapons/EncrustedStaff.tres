@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://22pqai18a2iy"]
+
+[ext_resource type="Script" uid="uid://n4wdao4yb455" path="res://src/entity/components/abilities/Ability.gd" id="1_gy465"]
+[ext_resource type="Script" uid="uid://bov0ary8rmjm0" path="res://src/entity/components/abilities/equipment/StaffBolt.gd" id="2_hux24"]
+[ext_resource type="Texture2D" uid="uid://cdkg7vhiologb" path="res://assets/TileSet.png" id="2_t1gq6"]
+[ext_resource type="Script" uid="uid://bjj3o1rcjl0x" path="res://src/entity/components/abilities/equipment/FireBall.gd" id="3_2utv2"]
+[ext_resource type="Script" uid="uid://dmyodmtnhftms" path="res://src/entity/components/items/equips/BasicStats.gd" id="3_8fglh"]
+[ext_resource type="Script" uid="uid://btjvfaon4ph8u" path="res://src/entity/components/items/Item.gd" id="3_gy465"]
+[ext_resource type="Script" uid="uid://ycfgfretw8yx" path="res://src/entity/components/abilities/equipment/ArcaneMind.gd" id="3_hux24"]
+
+[sub_resource type="Resource" id="Resource_vo67n"]
+script = ExtResource("2_hux24")
+shot_range = 6
+sides = 6
+colour = Color(1, 1, 0, 1)
+metadata/_custom_type_script = "uid://bov0ary8rmjm0"
+
+[sub_resource type="Resource" id="Resource_jp2rj"]
+script = ExtResource("3_2utv2")
+shot_range = 8
+sides = 8
+colour = Color(1, 0, 0, 1)
+metadata/_custom_type_script = "uid://bjj3o1rcjl0x"
+
+[sub_resource type="Resource" id="Resource_yi4tx"]
+script = ExtResource("3_hux24")
+colour = Color(1, 1, 0, 1)
+metadata/_custom_type_script = "uid://ycfgfretw8yx"
+
+[sub_resource type="Resource" id="Resource_uqi61"]
+script = ExtResource("3_8fglh")
+strength = -4
+arcane = 8
+mana = 6
+abilities = Array[ExtResource("1_gy465")]([SubResource("Resource_vo67n"), SubResource("Resource_jp2rj"), SubResource("Resource_yi4tx")])
+metadata/_custom_type_script = "uid://dmyodmtnhftms"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_227ra"]
+atlas = ExtResource("2_t1gq6")
+region = Rect2(32, 112, 16, 16)
+
+[resource]
+script = ExtResource("3_gy465")
+icon = SubResource("AtlasTexture_227ra")
+colour = Color(1, 1, 0, 1)
+name = "Encrusted Staff"
+equips = SubResource("Resource_uqi61")
+metadata/_custom_type_script = "uid://btjvfaon4ph8u"

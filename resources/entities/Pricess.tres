@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="EntityDefinition" format=3 uid="uid://0c4f8lp0hfwc"]
+
+[ext_resource type="Script" uid="uid://n4wdao4yb455" path="res://src/entity/components/abilities/Ability.gd" id="1_v5xdc"]
+[ext_resource type="Script" uid="uid://dclmnpe5tvfvb" path="res://src/entity/components/abilities/Clairvoyance.gd" id="2_qa7c7"]
+[ext_resource type="Script" uid="uid://c03v68wejxy80" path="res://src/entity/components/abilities/ArcaneBolt.gd" id="3_x862x"]
+[ext_resource type="Texture2D" uid="uid://cdkg7vhiologb" path="res://assets/TileSet.png" id="4_b7bcr"]
+[ext_resource type="Script" uid="uid://btjvfaon4ph8u" path="res://src/entity/components/items/Item.gd" id="5_c7r24"]
+[ext_resource type="Resource" uid="uid://wasfkhdodv0d" path="res://resources/items/potions/HealthPotion.tres" id="6_e8g53"]
+[ext_resource type="Resource" uid="uid://cmdu73w7ox7l4" path="res://resources/items/potions/ManaPotion.tres" id="7_khymi"]
+[ext_resource type="Script" uid="uid://bv45sx8o76h1d" path="res://src/entity/components/items/Inventory.gd" id="8_hufwe"]
+[ext_resource type="Script" uid="uid://2ko183ove0oe" path="res://src/entity/EntityDefinition.gd" id="9_qoaf8"]
+
+[sub_resource type="Resource" id="Resource_84vya"]
+script = ExtResource("2_qa7c7")
+colour = null
+metadata/_custom_type_script = "uid://dclmnpe5tvfvb"
+
+[sub_resource type="Resource" id="Resource_cw4as"]
+script = ExtResource("3_x862x")
+metadata/_custom_type_script = "uid://c03v68wejxy80"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_erxwb"]
+atlas = ExtResource("4_b7bcr")
+region = Rect2(144, 16, 16, 16)
+
+[sub_resource type="Resource" id="Resource_8tl0y"]
+script = ExtResource("8_hufwe")
+items = Array[ExtResource("5_c7r24")]([ExtResource("6_e8g53"), ExtResource("7_khymi")])
+metadata/_custom_type_script = "uid://bv45sx8o76h1d"
+
+[resource]
+script = ExtResource("9_qoaf8")
+entity_name = "Princess"
+death_verb = "slayed"
+icon = SubResource("AtlasTexture_erxwb")
+colour = Color(0.99999994, 0.39798483, 0.990056, 1)
+princess_controller = true
+max_health = 50
+regen = 1
+regen_delay = 25
+abilities = Array[ExtResource("1_v5xdc")]([SubResource("Resource_84vya"), SubResource("Resource_cw4as")])
+inventory = SubResource("Resource_8tl0y")
+metadata/_custom_type_script = "uid://2ko183ove0oe"

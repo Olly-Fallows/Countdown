@@ -6,6 +6,7 @@ func _init() -> void:
 	name = "Clairvoyance"
 	icon.atlas = load("res://assets/TileSet.png")
 	icon.region = Rect2i(16, 16*9, 16, 16)
+	colour = Color.CYAN
 
 func perform(caster: Entity, _grid_pos: Vector2i) -> bool:
 	var exits: Array[Tile] = []
@@ -13,7 +14,7 @@ func perform(caster: Entity, _grid_pos: Vector2i) -> bool:
 		if tile.is_exit():
 			exits.append(tile)
 	if exits.size() <= 0:
-		Log.log("There is no escape...")
+		Log.log("[color=#00ffff]" + "There is no escape... [/color]")
 		return false
 	var options: Array[PackedVector2Array] = []
 	for exit in exits:
@@ -22,6 +23,6 @@ func perform(caster: Entity, _grid_pos: Vector2i) -> bool:
 	for option in options:
 		if option.size() < chosen_option.size():
 			chosen_option = option
-	Log.log(caster.name() + " sees the way out")
-	caster.apply_effect(ClairvoyanceEffect.new(chosen_option, 15 + caster.combat.arcane_mod()))
+	Log.log("[color=#00ffff]" + caster.name() + " sees the way out [/color]")
+	caster.apply_effect(ClairvoyanceEffect.new(chosen_option[chosen_option.size()-1], 15 + caster.combat.arcane_mod()))
 	return true

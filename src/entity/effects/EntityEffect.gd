@@ -1,6 +1,8 @@
 extends RefCounted
 class_name EntityEffect
 
+@export
+var colour: Color = Color.WHITE
 var ttl: int = 1
 
 func apply(_entity: Entity) -> void:

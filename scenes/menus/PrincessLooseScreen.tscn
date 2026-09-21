@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://chp6pd2mkg3f5"]
+
+[ext_resource type="Theme" uid="uid://c42lb7g0x3j8u" path="res://resources/Theme.tres" id="1_rtm6x"]
+[ext_resource type="Script" uid="uid://cgdg6ksphg7ra" path="res://src/ui/LoadScene.gd" id="2_1w01e"]
+[ext_resource type="Script" uid="uid://db7au0vh3xe3m" path="res://src/ui/ScoreLabel.gd" id="3_fedqs"]
+
+[node name="ScoreScreen" type="Control" unique_id=282741373]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_rtm6x")
+
+[node name="Label" type="Label" parent="." unique_id=512928483]
+layout_mode = 0
+offset_left = 56.0
+offset_top = -11.000023
+offset_right = 497.0
+offset_bottom = 81.99998
+rotation = 0.2617994
+theme_override_font_sizes/font_size = 48
+text = "YOU FAILED TO PROTECT
+THE PRINCESS"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=1841118812]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -27.5
+offset_top = -71.0
+offset_right = 27.5
+offset_bottom = -51.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Main Menu"
+script = ExtResource("2_1w01e")
+scene = "uid://bele0n1r08yy1"
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=1143674368]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 19.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+script = ExtResource("3_fedqs")
+metadata/_custom_type_script = "uid://db7au0vh3xe3m"

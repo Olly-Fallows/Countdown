@@ -12,6 +12,10 @@ const tile_set: Dictionary[String, TileDefinition] = {
 	"stairs": preload("uid://dwk3ec4e4vwqo"),
 	"doom_floor": preload("uid://cbfbpjvgfxaqh"),
 	"doom_wall": preload("uid://b1hrb5u8nebpd"),
+	"cage": preload("uid://dhr8kq2p702nm"),
+	"crystal": preload("uid://guudsvwuyy53"),
+	"broken_crystal": preload("uid://brhheuuiue5o0"),
+	"door": preload("uid://bvfogviy3og5j")
 }
 
 var size: Vector2i
@@ -66,7 +70,8 @@ func get_entity_xy(x: int, y: int) -> Entity:
 func get_entity(pos: Vector2i) -> Entity:
 	for entity in entities:
 		if entity.grid_pos == pos:
-			return entity
+			if not entity.is_traversable():
+				return entity
 	return null
 
 func get_tile_xy(x: int, y: int) -> Tile:

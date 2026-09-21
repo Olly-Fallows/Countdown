@@ -25,4 +25,12 @@ func perform(_caster: Entity, grid_pos: Vector2i) -> bool:
 			Log.log("The doom is creeping closer")
 		if tile.is_type(GameData.map_data.tile_set.stairs):
 			Log.log("These will take me to the next floor")
+		if tile.is_type(GameData.map_data.tile_set.cage):
+			Log.log("It appears to be a magic barrier")
+		if tile.is_type(GameData.map_data.tile_set.crystal):
+			Log.log("It holds great power")
+		if tile.is_type(GameData.map_data.tile_set.broken_crystal):
+			Log.log("It's cursed power has been released into the world")
+		if tile.is_type(GameData.map_data.tile_set.door):
+			Log.log("It's a door, I can walk through it")
 	return false

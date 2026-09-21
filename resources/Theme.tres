@@ -1,7 +1,51 @@
 [gd_resource type="Theme" format=3 uid="uid://c42lb7g0x3j8u"]
 
-[ext_resource type="FontFile" uid="uid://cf7w10usar8di" path="res://assets/BoldPixels.ttf" id="1_10srq"]
+[ext_resource type="FontFile" uid="uid://djjafmqc3uia7" path="res://assets/Cairopixel.ttf" id="1_10srq"]
+[ext_resource type="StyleBox" uid="uid://b2mbic8u042wd" path="res://resources/button.tres" id="1_cjwly"]
+[ext_resource type="Texture2D" uid="uid://qgd5hft10fkl" path="res://assets/FocusButton.png" id="1_f1p5x"]
+[ext_resource type="Texture2D" uid="uid://d04tyhco32gfn" path="res://assets/ProgressBar.png" id="1_jaexg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p8m3u"]
+texture = ExtResource("1_f1p5x")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjwly"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2n3tt"]
+texture = ExtResource("1_jaexg")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
 [resource]
 default_font = ExtResource("1_10srq")
-default_font_size = 8
+default_font_size = 12
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0.3137255, 0, 0.42745098, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/styles/focus = SubResource("StyleBoxTexture_p8m3u")
+Button/styles/hover = ExtResource("1_cjwly")
+Button/styles/hover_pressed = ExtResource("1_cjwly")
+Button/styles/normal = ExtResource("1_cjwly")
+Button/styles/pressed = ExtResource("1_cjwly")
+ProgressBar/colors/font_color = Color(1, 1, 1, 1)
+ProgressBar/colors/font_outline_color = Color(0, 0, 0, 1)
+ProgressBar/constants/outline_size = 0
+ProgressBar/styles/background = SubResource("StyleBoxFlat_cjwly")
+ProgressBar/styles/fill = SubResource("StyleBoxTexture_2n3tt")

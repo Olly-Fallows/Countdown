@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://dp2e2hpunydb5"]
+
+[ext_resource type="Script" uid="uid://n4wdao4yb455" path="res://src/entity/components/abilities/Ability.gd" id="1_u3l2p"]
+[ext_resource type="Script" uid="uid://bov0ary8rmjm0" path="res://src/entity/components/abilities/equipment/StaffBolt.gd" id="2_crgg5"]
+[ext_resource type="Texture2D" uid="uid://cdkg7vhiologb" path="res://assets/TileSet.png" id="2_nyjux"]
+[ext_resource type="Script" uid="uid://bjj3o1rcjl0x" path="res://src/entity/components/abilities/equipment/FireBall.gd" id="3_crgg5"]
+[ext_resource type="Script" uid="uid://dmyodmtnhftms" path="res://src/entity/components/items/equips/BasicStats.gd" id="3_jp2rj"]
+[ext_resource type="Script" uid="uid://btjvfaon4ph8u" path="res://src/entity/components/items/Item.gd" id="3_u3l2p"]
+
+[sub_resource type="Resource" id="Resource_g5bmv"]
+script = ExtResource("2_crgg5")
+shot_range = 5
+sides = 4
+colour = Color(0, 0.5803922, 0.75686276, 1)
+metadata/_custom_type_script = "uid://bov0ary8rmjm0"
+
+[sub_resource type="Resource" id="Resource_bnkba"]
+script = ExtResource("3_crgg5")
+colour = Color(1, 0.36862746, 0, 1)
+metadata/_custom_type_script = "uid://bjj3o1rcjl0x"
+
+[sub_resource type="Resource" id="Resource_uqi61"]
+script = ExtResource("3_jp2rj")
+strength = -2
+arcane = 4
+mana = 4
+abilities = Array[ExtResource("1_u3l2p")]([SubResource("Resource_g5bmv"), SubResource("Resource_bnkba")])
+metadata/_custom_type_script = "uid://dmyodmtnhftms"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_227ra"]
+atlas = ExtResource("2_nyjux")
+region = Rect2(32, 112, 16, 16)
+
+[resource]
+script = ExtResource("3_u3l2p")
+icon = SubResource("AtlasTexture_227ra")
+colour = Color(1.8289685e-06, 0.5809696, 0.75551426, 1)
+name = "Polished Staff"
+equips = SubResource("Resource_uqi61")
+metadata/_custom_type_script = "uid://btjvfaon4ph8u"

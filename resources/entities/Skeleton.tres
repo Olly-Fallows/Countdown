@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="EntityDefinition" format=3 uid="uid://c23yxd63lvmn0"]
+
+[ext_resource type="Script" uid="uid://n4wdao4yb455" path="res://src/entity/components/abilities/Ability.gd" id="1_uyf3i"]
+[ext_resource type="Texture2D" uid="uid://cdkg7vhiologb" path="res://assets/TileSet.png" id="2_4n5jf"]
+[ext_resource type="Script" uid="uid://btjvfaon4ph8u" path="res://src/entity/components/items/Item.gd" id="3_m8w05"]
+[ext_resource type="Script" uid="uid://bv45sx8o76h1d" path="res://src/entity/components/items/Inventory.gd" id="4_ar851"]
+[ext_resource type="Script" uid="uid://2ko183ove0oe" path="res://src/entity/EntityDefinition.gd" id="5_kct83"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mymg8"]
+atlas = ExtResource("2_4n5jf")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="Resource" id="Resource_plydf"]
+script = ExtResource("4_ar851")
+metadata/_custom_type_script = "uid://bv45sx8o76h1d"
+
+[resource]
+script = ExtResource("5_kct83")
+entity_name = "Skeleton"
+death_verb = "destroyed"
+icon = SubResource("AtlasTexture_mymg8")
+colour = Color(1, 1, 0.89411765, 1)
+enemy_controller = true
+max_health = 3
+max_mana = 0
+strength = 6
+inventory = SubResource("Resource_plydf")
+metadata/_custom_type_script = "uid://2ko183ove0oe"

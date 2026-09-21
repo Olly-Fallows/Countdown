@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="TileDefinition" format=3 uid="uid://guudsvwuyy53"]
+
+[ext_resource type="Script" uid="uid://dkiyischwbvgh" path="res://src/game/world/TileEffect.gd" id="1_enpvb"]
+[ext_resource type="Texture2D" uid="uid://cdkg7vhiologb" path="res://assets/TileSet.png" id="3_b7f8w"]
+[ext_resource type="Script" uid="uid://d4ij2ukk3ua0v" path="res://src/game/world/TileDefinition.gd" id="4_4v65u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aaeau"]
+atlas = ExtResource("3_b7f8w")
+region = Rect2(128, 0, 16, 16)
+
+[resource]
+script = ExtResource("4_4v65u")
+icon = SubResource("AtlasTexture_aaeau")
+colour = Color(0.4745098, 0.5058824, 1, 1)
+is_walkable = false
+metadata/_custom_type_script = "uid://d4ij2ukk3ua0v"

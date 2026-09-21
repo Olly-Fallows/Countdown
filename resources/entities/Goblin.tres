@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://2ko183ove0oe" path="res://src/entity/EntityDefinition.gd" id="3_8tl0y"]
 [ext_resource type="Script" uid="uid://bv45sx8o76h1d" path="res://src/entity/components/items/Inventory.gd" id="3_k4l4r"]
 [ext_resource type="Script" uid="uid://btjvfaon4ph8u" path="res://src/entity/components/items/Item.gd" id="3_vmhpv"]
+[ext_resource type="Resource" uid="uid://cbcf4qsjtdqdp" path="res://resources/items/weapons/BronzeSword.tres" id="4_vmhpv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mymg8"]
 atlas = ExtResource("2_k4l4r")
@@ -12,6 +13,7 @@ region = Rect2(0, 32, 16, 16)
 
 [sub_resource type="Resource" id="Resource_plydf"]
 script = ExtResource("3_k4l4r")
+items = Array[ExtResource("3_vmhpv")]([ExtResource("4_vmhpv"), null, null])
 metadata/_custom_type_script = "uid://bv45sx8o76h1d"
 
 [resource]
@@ -20,8 +22,8 @@ entity_name = "Goblin"
 icon = SubResource("AtlasTexture_mymg8")
 colour = Color(0.46737665, 0.620277, 0.34320268, 1)
 enemy_controller = true
-max_health = 5
+max_health = 8
 max_mana = 0
-strength = 8
+strength = 12
 inventory = SubResource("Resource_plydf")
 metadata/_custom_type_script = "uid://2ko183ove0oe"

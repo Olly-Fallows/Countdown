@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://wqaf7c36arex"]
+
+[ext_resource type="Theme" uid="uid://c42lb7g0x3j8u" path="res://resources/Theme.tres" id="1_000ip"]
+[ext_resource type="Script" uid="uid://kslwr66wvqj8" path="res://src/ui/OutlineChildren.gd" id="2_rx4po"]
+[ext_resource type="Script" uid="uid://dn2xvuyye3tdn" path="res://src/game/Level.gd" id="3_e257y"]
+[ext_resource type="Script" uid="uid://2ko183ove0oe" path="res://src/entity/EntityDefinition.gd" id="4_7xq2f"]
+[ext_resource type="Resource" uid="uid://cq3c0nuktqibp" path="res://resources/entities/Goblin.tres" id="5_e257y"]
+[ext_resource type="Resource" uid="uid://c23yxd63lvmn0" path="res://resources/entities/Skeleton.tres" id="5_xmmsn"]
+[ext_resource type="Resource" uid="uid://bw0spskqq3oe8" path="res://resources/entities/Slime.tres" id="6_vjdek"]
+[ext_resource type="Resource" uid="uid://c4d1fejdqqsw3" path="res://resources/entities/chests/GoodChest.tres" id="7_7xq2f"]
+[ext_resource type="Resource" uid="uid://b8j2iortotqss" path="res://resources/entities/chests/DecentChest.tres" id="7_qw2ud"]
+[ext_resource type="Script" uid="uid://shbf2l2ls8ps" path="res://src/game/world/procgen/RoomPreset.gd" id="8_y661n"]
+[ext_resource type="Resource" uid="uid://vfp628ues6sq" path="res://resources/rooms/SubRooms.tres" id="12_7memh"]
+[ext_resource type="Resource" uid="uid://f77lyyfbad3v" path="res://resources/rooms/Ruins1.tres" id="12_rx4po"]
+[ext_resource type="Resource" uid="uid://xgao4nwvcev7" path="res://resources/rooms/Ruins2.tres" id="13_e257y"]
+[ext_resource type="Resource" uid="uid://ca2fp0wshyne4" path="res://resources/rooms/Ruins3.tres" id="14_7xq2f"]
+[ext_resource type="Script" uid="uid://1tjwnoddpach" path="res://src/game/world/procgen/simpleroom/SimpleRooms.gd" id="14_b3b0f"]
+[ext_resource type="Script" uid="uid://dyyfbbwdsxtmh" path="res://src/ui/PlayerHealthBar.gd" id="15_s2xic"]
+[ext_resource type="Script" uid="uid://bn1e12cw1acfx" path="res://src/ui/PlayerManaBar.gd" id="16_gh4cf"]
+[ext_resource type="Script" uid="uid://dknihv0w53ku3" path="res://src/ui/Map.gd" id="17_c8ocx"]
+[ext_resource type="Script" uid="uid://bd2nt58o0fbj7" path="res://src/ui/LogBox.gd" id="18_mokrb"]
+[ext_resource type="Script" uid="uid://bv0qkex335m8q" path="res://src/ui/AbilityBar.gd" id="19_qab5v"]
+
+[sub_resource type="Resource" id="Resource_pok8i"]
+script = ExtResource("14_b3b0f")
+min_per_room = 2
+enemies = Array[ExtResource("4_7xq2f")]([ExtResource("5_e257y"), ExtResource("7_qw2ud"), ExtResource("7_7xq2f"), ExtResource("5_xmmsn"), ExtResource("6_vjdek")])
+room_options = Array[ExtResource("8_y661n")]([ExtResource("12_7memh"), ExtResource("12_rx4po"), ExtResource("13_e257y"), ExtResource("14_7xq2f"), ExtResource("12_7memh")])
+metadata/_custom_type_script = "uid://1tjwnoddpach"
+
+[node name="Level1" type="Control" unique_id=654312654]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_000ip")
+script = ExtResource("2_rx4po")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1137515611]
+layout_mode = 0
+offset_right = 336.0
+offset_bottom = 272.0
+size_flags_horizontal = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=2146646266]
+handle_input_locally = false
+size = Vector2i(336, 272)
+render_target_update_mode = 4
+
+[node name="Level" type="Node2D" parent="SubViewportContainer/SubViewport" unique_id=594384000]
+script = ExtResource("3_e257y")
+size = Vector2i(60, 60)
+generator = SubResource("Resource_pok8i")
+metadata/_custom_type_script = "uid://dn2xvuyye3tdn"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=130833555]
+layout_mode = 0
+offset_left = 336.0
+offset_right = 512.0
+offset_bottom = 288.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1231718009]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=358643524]
+layout_mode = 2
+text = "HP:"
+
+[node name="PlayerHealthBar" type="ProgressBar" parent="VBoxContainer/HBoxContainer" unique_id=879360703]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+show_percentage = false
+script = ExtResource("15_s2xic")
+metadata/_custom_type_script = "uid://dyyfbbwdsxtmh"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=129561328]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2" unique_id=944325499]
+layout_mode = 2
+text = "MP:"
+
+[node name="PlayerManaBar" type="ProgressBar" parent="VBoxContainer/HBoxContainer2" unique_id=382426894]
+modulate = Color(0, 0, 1, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+show_percentage = false
+script = ExtResource("16_gh4cf")
+metadata/_custom_type_script = "uid://bn1e12cw1acfx"
+
+[node name="Map" type="Control" parent="VBoxContainer" unique_id=1117740178]
+layout_mode = 2
+script = ExtResource("17_c8ocx")
+metadata/_custom_type_script = "uid://dknihv0w53ku3"
+
+[node name="LogBox" type="RichTextLabel" parent="VBoxContainer" unique_id=1370050187]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+scroll_following = true
+scroll_following_visible_characters = true
+vertical_alignment = 2
+script = ExtResource("18_mokrb")
+metadata/_custom_type_script = "uid://bd2nt58o0fbj7"
+
+[node name="AbilityBar" type="HBoxContainer" parent="." unique_id=325875278]
+layout_mode = 0
+offset_top = 272.0
+offset_right = 336.0
+offset_bottom = 288.0
+alignment = 1
+script = ExtResource("19_qab5v")
+metadata/_custom_type_script = "uid://bv0qkex335m8q"
